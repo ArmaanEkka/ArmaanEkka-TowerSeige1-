@@ -7,7 +7,7 @@ class Sling{
             length: 10
         }
         
-        this.pointA = pointA
+     //   this.pointA = bodyA
         this.pointB = pointB
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
@@ -20,9 +20,10 @@ class Sling{
     }
 
     display(){
-        
-        line(pointA.x, pointA.y, pointB.x, pointB.y);
-        
+        if(this.sling.bodyA){
+        var pointA = this.sling.bodyA.position;
+        line(pointA.x, pointA.y, this.pointB.x, this.pointB.y);
+        }
     }
     
 }
